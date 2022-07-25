@@ -6,18 +6,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.talentounido.persistencia.R;
 
 import java.util.ArrayList;
 
 public class Adaptador extends BaseAdapter {
-    private ArrayList<Producto> productos;
     private Context context;
+    private ArrayList<Producto> productos;
     private int layout;
-    public Adaptador(ArrayList<Producto> productos, Context context, int layout) {
-        this.productos = productos;
+
+    public Adaptador(Context context, ArrayList<Producto> productos, int layout) {
         this.context = context;
+        this.productos = productos;
         this.layout = layout;
     }
 
@@ -34,24 +36,24 @@ public class Adaptador extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View view = convertView;
+        View v = convertView;
         LayoutInflater inflater = LayoutInflater.from(this.context);
-        view = inflater.inflate(R.layout.list_item,null);
+        v = inflater.inflate(R.layout.list_item,null);
 
         String marca,venta,existencia;
-        marca = productos.get(position).getMarca();
+        marca = productos.get(position).getMarca().toString();
         venta = productos.get(position).getPreVenta().toString();
         existencia = String.valueOf(productos.get(position).getExistencia());
 
-        EditText txtMarca,txtVenta,txtExistencia;
-        txtMarca = view.findViewById(R.id.txtMarca);
-        txtVenta = view.findViewById(R.id.txtVenta);
-        txtExistencia = view.findViewById(R.id.txtExistencia);
+        TextView txtMarca,txtVenta,txtExistencia;
+        txtMarca = v.findViewById(R.id.txtMarca);
+        txtVenta = v.findViewById(R.id.txtVenta);
+        txtExistencia = v.findViewById(R.id.txtExistencia);
 
         txtMarca.setText(marca);
         txtVenta.setText(venta);
         txtExistencia.setText(existencia);
 
-        return view;
+        return v;
     }
 }

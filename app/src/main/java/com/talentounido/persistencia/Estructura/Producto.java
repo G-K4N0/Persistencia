@@ -3,7 +3,7 @@ package com.talentounido.persistencia.Estructura;
 public class Producto {
     private String codigo;
     private String marca;
-    private String vencimiento;
+    private String fecha;
     private Double preCompra;
     private Double preVenta;
     private String descripcion;
@@ -26,12 +26,12 @@ public class Producto {
         this.marca = marca;
     }
 
-    public String getVencimiento() {
-        return vencimiento;
+    public String getFecha() {
+        return fecha;
     }
 
-    public void setVencimiento(String vencimiento) {
-        this.vencimiento = vencimiento;
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
 
     public Double getPreCompra() {
@@ -74,10 +74,10 @@ public class Producto {
         this.stock = stock;
     }
 
-    public Producto(String codigo, String marca, String vencimiento, Double preCompra, Double preVenta, String descripcion, int existencia, int stock) {
+    public Producto(String codigo, String marca, String fecha, Double preCompra, Double preVenta, String descripcion, int existencia, int stock) {
         this.codigo = codigo;
         this.marca = marca;
-        this.vencimiento = vencimiento;
+        this.fecha = fecha;
         this.preCompra = preCompra;
         this.preVenta = preVenta;
         this.descripcion = descripcion;
